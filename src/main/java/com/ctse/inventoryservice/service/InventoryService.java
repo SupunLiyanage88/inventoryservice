@@ -48,7 +48,7 @@ public class InventoryService {
     public Product updateProduct(String id, Product product) {
         return inventoryRepository.findById(id)
                 .map(existingProduct -> {
-                    existingProduct.setName(product.getName());
+                    existingProduct.setName(product.getName() + " Updated");
                     existingProduct.setDescription(product.getDescription());
                     existingProduct.setPrice(product.getPrice());
                     existingProduct.setQuantity(product.getQuantity());
