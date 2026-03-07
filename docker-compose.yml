@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  inventory-service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: inventory-service
+    ports:
+      - "8081:8081"
+    environment:
+      - SPRING_MONGODB_URI=${SPRING_MONGODB_URI:-mongodb+srv://supunliyanage:supun1234@inventoryservice.kp2juls.mongodb.net/?appName=inventoryservice}
+      - SPRING_MONGODB_DATABASE=${SPRING_MONGODB_DATABASE:-inventorydb}
+    networks:
+      - microservices-network
+    restart: unless-stopped
+
+networks:
+  microservices-network:
+    driver: bridge
