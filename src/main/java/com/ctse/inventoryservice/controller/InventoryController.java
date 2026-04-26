@@ -99,7 +99,7 @@ public class InventoryController {
         return ResponseEntity.notFound().build();
     }
     
-    // Health check
+    // Health check the endpoint to verify service is running
     @GetMapping("/health")
     public ResponseEntity<Map<String, String>> healthCheck() {
         return ResponseEntity.ok(Map.of(
